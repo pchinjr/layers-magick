@@ -4,7 +4,7 @@ const { exec } = require("child_process");
 
 async function resizeAvatar(req) {
 
-  exec('gm version', (error, stdout, stderr) => {
+  exec('ls', (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;

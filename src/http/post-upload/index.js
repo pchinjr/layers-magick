@@ -16,6 +16,7 @@ async function resizeAvatar(req) {
     console.log(`stdout: ${stdout}`);
   });
 
+  console.log(req.body)
   
   return {
     statusCode: 200,

@@ -1,21 +1,11 @@
 let arc = require('@architect/functions')
 
-const { exec } = require("child_process");
+const { execSync } = require("child_process");
 
-async function resizeAvatar(req) {
+async function resizeAvatar(req, context,) {
 
-  exec('ls', (error, stdout, stderr) => {
-    if (error) {
-        console.log(`error: ${error.message}`);
-        return;
-    }
-    if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-    }
-    console.log(`stdout: ${stdout}`);
-  });
-
+  execSync('gm version', { encoding: 'utf8', stdio: 'inherit' })
+  
   console.log(req.body)
   
   return {

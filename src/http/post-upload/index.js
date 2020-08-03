@@ -4,7 +4,7 @@ const { execSync } = require("child_process");
 
 async function resizeAvatar(req, context,) {
 
-  execSync('gm version', { encoding: 'utf8', stdio: 'inherit' })
+  execSync('ls', { encoding: 'utf8', stdio: 'inherit' })
   
   console.log(req.body)
   

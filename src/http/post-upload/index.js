@@ -1,11 +1,9 @@
 let arc = require('@architect/functions')
 const { execSync } = require("child_process");
 
-exports.handler = async (event, context) => {
-  console.log(context)
-  console.log(event)
-  
+exports.handler = async function http(request) {
   return {
-    statusCode: 200
+    headers: {'content-type': 'text/html; charset=utf-8;'},
+    body: '<h1>Hello World! 🎉</h1>'
   }
 }

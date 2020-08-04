@@ -5,3 +5,6 @@ begin-app
 
 @http
 post /upload
+
+@aws
+region us-east-1

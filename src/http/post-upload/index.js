@@ -5,5 +5,7 @@ exports.handler = async (event, context) => {
   console.log(context)
   console.log(event)
   
-  return
+  return {
+    statusCode: 200
+  }
 }

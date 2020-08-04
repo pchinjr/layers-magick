@@ -3,7 +3,7 @@ const { execSync } = require("child_process");
 
 exports.handler = async function http(request) {
   
-  execSync('gm version', { encoding: 'utf8', stdio: 'inherit' })
+  execSync('which gm', { encoding: 'utf8', stdio: 'inherit' })
   
   return {
     headers: {'content-type': 'text/html; charset=utf-8;'},

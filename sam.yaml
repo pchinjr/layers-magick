@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Exported by architect/package@1.3.8 on 2020-08-06T13:37:09.062Z
+Description: Exported by architect/package@1.3.8 on 2020-08-06T14:14:44.191Z
 Resources:
   BeginApp:
     Type: AWS::Serverless::Api
@@ -99,7 +99,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: index.handler
-      CodeUri: s3://begin-app-cfn-deployments-61d6d/3115c6471884bd0ef0046ee0f6ef326b
+      CodeUri: s3://begin-app-cfn-deployments-61d6d/59953dd9fd01ec57dd5aeee8a5d57760
       Runtime: nodejs12.x
       MemorySize: 1152
       Timeout: 5

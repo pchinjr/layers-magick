@@ -1,7 +1,7 @@
 {
   "AWSTemplateFormatVersion": "2010-09-09",
   "Transform": "AWS::Serverless-2016-10-31",
-  "Description": "Exported by architect/package@1.3.8 on 2020-08-06T13:34:06.349Z",
+  "Description": "Exported by architect/package@1.3.8 on 2020-08-06T13:37:09.062Z",
   "Resources": {
     "BeginApp": {
       "Type": "AWS::Serverless::Api",
@@ -26,30 +26,6 @@
                 "x-amazon-apigateway-integration": {
                   "uri": {
                     "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${PostUpload.Arn}/invocations"
-                  },
-                  "responses": {
-                    "default": {
-                      "statusCode": "200",
-                      "contentHandling": "CONVERT_TO_TEXT"
-                    }
-                  },
-                  "passthroughBehavior": "when_no_match",
-                  "httpMethod": "POST",
-                  "contentHandling": "CONVERT_TO_TEXT",
-                  "type": "aws_proxy"
-                }
-              }
-            },
-            "/about": {
-              "get": {
-                "responses": {
-                  "200": {
-                    "description": "200 response"
-                  }
-                },
-                "x-amazon-apigateway-integration": {
-                  "uri": {
-                    "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${GetAbout.Arn}/invocations"
                   },
                   "responses": {
                     "default": {
@@ -216,56 +192,10 @@
               }
             }
           }
-        }
-      }
-    },
-    "GetAbout": {
-      "Type": "AWS::Serverless::Function",
-      "Properties": {
-        "Handler": "index.handler",
-        "CodeUri": "./src/http/get-about",
-        "Runtime": "nodejs12.x",
-        "MemorySize": 1152,
-        "Timeout": 5,
-        "Environment": {
-          "Variables": {
-            "ARC_ROLE": {
-              "Ref": "Role"
-            },
-            "ARC_CLOUDFORMATION": {
-              "Ref": "AWS::StackName"
-            },
-            "ARC_APP_NAME": "begin-app",
-            "ARC_HTTP": "aws_proxy",
-            "NODE_ENV": "staging",
-            "SESSION_TABLE_NAME": "jwe",
-            "ARC_STATIC_BUCKET": {
-              "Ref": "StaticBucket"
-            }
-          }
         },
-        "Role": {
-          "Fn::Sub": [
-            "arn:aws:iam::${AWS::AccountId}:role/${roleName}",
-            {
-              "roleName": {
-                "Ref": "Role"
-              }
-            }
-          ]
-        },
-        "Events": {
-          "GetAboutEvent": {
-            "Type": "Api",
-            "Properties": {
-              "Path": "/about",
-              "Method": "GET",
-              "RestApiId": {
-                "Ref": "BeginApp"
-              }
-            }
-          }
-        }
+        "Layers": [
+          "arn:aws:lambda:us-east-1:175033217214:layer:graphicsmagick:2"
+        ]
       }
     },
     "GetIndex": {

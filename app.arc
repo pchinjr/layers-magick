@@ -7,4 +7,5 @@ begin-app
 post /upload
 
 @aws
+profile default
 region us-east-1

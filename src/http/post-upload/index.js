@@ -1,14 +1,12 @@
-let arc = require('@architect/functions')
-const { execSync } = require("child_process");
-const os = require('os')
-exports.handler = async function http(request) {
-  
-  console.log(os.homedir())
+// learn more about HTTP functions here: https://arc.codes/primitives/http
 
-  //execSync( 'gm version', { encoding: 'utf8', stdio: 'inherit' })
-  
+
+exports.handler = async function http (req) {
   return {
-    headers: {'content-type': 'text/html; charset=utf-8;'},
-    body: '<h1>Hello World! 🎉</h1>'
+    headers: {
+      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
+      'content-type': 'text/html; charset=utf8'
+    },
+    body: `Praise Cage`
   }
 }
